@@ -26,9 +26,9 @@ function updateButtons(){$('#analyze').disabled=busy||!selected.size||!$('#promp
 function params(){return {prompt:$('#prompt').value.trim()||'선택된 데이터를 미리 보여 주세요.',sourceIds:[...selected],region:$('#region').value,observationDate:$('#observation-date').value,startYear:Number($('#start-year').value),endYear:Number($('#end-year').value),keyword:$('#keyword').value};}
 function setBusy(value){busy=value;$$('#prompt,.query-fields input,.query-fields select,[data-example],#suggestions button,#new-analysis').forEach(e=>e.disabled=value);renderCards();renderSelection();}
 function showError(message){$('#error').textContent=message;$('#error').hidden=false;}
-function log(event){logs.push({...event,time:new Date().toISOString()});const line=document.createElement('div');line.textContent=`${event.stage==='source_error'?'!':'✓'} ${event.message}`;$('#progress-log').append(line);if(event.stage==='analyze')$('#progress-title').textContent='선택한 데이터에서 인사이트를 찾는 중';}
+function log(event){logs.push({...event,time:new Date().toISOString()});$('#progress-title').textContent=event.message;const line=document.createElement('div');line.textContent=`${event.stage==='source_error'?'!':'✓'} ${event.message}`;$('#progress-log').append(line);if(event.stage==='analyze')$('#progress-title').textContent='선택한 데이터에서 인사이트를 찾는 중';}
 async function run(preview=false){
- if(busy)return;const p=params();invalidate();logs=[];setBusy(true);$('#progress').hidden=false;$('#progress-log').innerHTML='';$('#progress-title').textContent=preview?'선택한 원자료를 조회하는 중':'데이터를 연결하고 있습니다';const start=Date.now();$('#elapsed').textContent='0초';timer=setInterval(()=>$('#elapsed').textContent=`${Math.floor((Date.now()-start)/1000)}초`,1000);
+ if(busy)return;const p=params();invalidate();logs=[];setBusy(true);$('#progress').hidden=false;$('#progress .spinner').hidden=false;$('#progress-log').innerHTML='';$('#progress-title').textContent=preview?'선택한 원자료를 조회하는 중':'데이터를 연결하고 있습니다';const start=Date.now();$('#elapsed').textContent='0초';timer=setInterval(()=>$('#elapsed').textContent=`${Math.floor((Date.now()-start)/1000)}초`,1000);
  try{
   const response=await fetch(API_BASE+(preview?'/api/preview':'/api/analyze'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});
   if(!response.ok){const error=await response.json();throw new Error(error.error||'요청 처리 실패');}
@@ -40,7 +40,7 @@ async function run(preview=false){
    saveHistory();
   }
  }catch(e){showError(e.message);if(result)view='table';}
- finally{clearInterval(timer);setBusy(false);$('#progress').hidden=true;if(result){$('#results').hidden=false;$('#getting-started').hidden=true;renderResult();$('#results').scrollIntoView({behavior:'smooth',block:'start'});}}
+ finally{clearInterval(timer);setBusy(false);$('#progress').hidden=preview;$('#progress .spinner').hidden=true;$('#progress-title').textContent='분석 과정 · 실행 기록';if(result){$('#results').hidden=false;$('#getting-started').hidden=true;renderResult();$('#results').scrollIntoView({behavior:'smooth',block:'start'});}}
 }
 function metricCards(){const data=result.datasets.filter(d=>!d.error);return `<div class="metric-grid"><div class="metric"><span>사용한 데이터 소스</span><strong>${data.length}<small>선택 ${result.params.sourceIds.length}개 중 조회 성공</small></strong></div><div class="metric"><span>실제 조회된 레코드</span><strong>${data.reduce((n,d)=>n+d.rows.length,0).toLocaleString()}<small>유효·결측 행 포함 · 정량 원자료</small></strong></div><div class="metric"><span>조회 기준 시각</span><strong style="font-size:19px">${new Date(result.createdAt).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})}<small>${new Date(result.createdAt).toLocaleDateString('ko-KR')}</small></strong></div></div>`;}
 function lineChart(d,mode='line'){
