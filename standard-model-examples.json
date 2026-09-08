@@ -1,0 +1,63 @@
+{
+  "generated_date": "2026-09-08",
+  "datasets": [
+    {
+      "model_id": "foi-analytics",
+      "rows": 4000,
+      "synthetic": true,
+      "source": "foi-analytics/samples/sample_data.csv",
+      "source_sha256": "8f175c239b66a1f1f5130043d4ed9082672fffb0ea3eb42e1a5a11fb56ea5cd1",
+      "method": "기존 공개용 4000건 합성 예제의 웹 입력 컬럼을 선택. 행·날짜·본문 값은 보존.",
+      "columns": [
+        "접수일",
+        "처리부서",
+        "접수번호",
+        "청구제목",
+        "청구내용",
+        "결정구분",
+        "처리기간"
+      ],
+      "files": [
+        {
+          "path": "foi-analytics-sample.csv",
+          "sha256": "31d48522791bdf8efc8de51ba7afc1439b5029eacbb1b2b14beddd4a80265920",
+          "bytes": 1751457
+        },
+        {
+          "path": "foi-analytics-sample.xlsx",
+          "sha256": "4229d9b1105e404ae6417e2791427bef6179c4935dc0d66131c32019cebb87b9",
+          "bytes": 538295
+        }
+      ]
+    },
+    {
+      "model_id": "public-voc",
+      "rows": 120,
+      "synthetic": true,
+      "source": "public-VOC/plugin/samples/sample.csv",
+      "source_sha256": "4b4241ed83e386aac1245b5ff4b4eb1360dfda9fc52fe00348d8d34ec8f8eaec",
+      "method": "기존 합성 본문 3종을 재사용하고 120건의 가상 번호·날짜·완료일로 확장. 본문 다양성/분류 품질 평가용이 아님.",
+      "columns": [
+        "민원등록일",
+        "민원내용",
+        "민원접수번호",
+        "민원제목",
+        "처리부서",
+        "민원유형",
+        "처리완료일"
+      ],
+      "files": [
+        {
+          "path": "public-voc-sample.csv",
+          "sha256": "c0a006bafa0a62a79e88f7bb954afd339da2fd8b345456f8158408eda6df462a",
+          "bytes": 15919
+        },
+        {
+          "path": "public-voc-sample.xlsx",
+          "sha256": "fab0d9e8ab781f1c54765ab5ae7d3f83bf7371339b295be4cba8dbb7306250f5",
+          "bytes": 10138
+        }
+      ]
+    }
+  ]
+}

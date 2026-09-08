@@ -6,7 +6,7 @@
 <section aria-labelledby="models-title"><div class="section-title"><h2 id="models-title">01 · 분석모델 선택</h2><span id="model-count"></span></div><div id="web-models" class="model-grid"></div></section>
 <section id="workbench" class="panel"><div class="section-title"><h2 id="model-title">02 · 데이터 연결</h2><span id="model-version"></span></div><p id="model-description"></p><p id="input-contract" class="contract"></p><details><summary>분석 범위와 원본 모델의 차이</summary><ul id="model-limitations"></ul></details>
 <div class="input-grid"><label>기관 보유 파일<input id="analysis-file" type="file" accept=".csv,.xlsx"></label><label id="sheet-label" hidden>분석할 시트<select id="analysis-sheet"><option value="">시트를 선택하세요</option></select></label></div>
-<p class="hint">10MiB · 최대 20,000행 · CSV는 UTF-8/CP949 · 엑셀 수식은 저장된 계산값을 읽으므로 값으로 변환한 파일을 권장합니다.</p>
+<div id="example-files" class="actions"></div><p class="hint">10MiB · 최대 20,000행 · CSV는 UTF-8/CP949 · 엑셀 수식은 저장된 계산값을 읽으므로 값으로 변환한 파일을 권장합니다.</p>
 <div class="actions"><button id="analyze-file" class="primary" disabled>통계 분석 실행</button><button id="load-example">합성 예제로 체험</button><button id="download-template">입력 예시 CSV</button></div>
 <p id="analysis-status" role="status" aria-live="polite">파일을 선택하거나 합성 예제로 시작하세요.</p><div id="analysis-error" role="alert" hidden></div>
 </section>
