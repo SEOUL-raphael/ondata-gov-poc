@@ -25,7 +25,7 @@
         },
         {
           "path": "foi-analytics-sample.xlsx",
-          "sha256": "4229d9b1105e404ae6417e2791427bef6179c4935dc0d66131c32019cebb87b9",
+          "sha256": "c4a2292bdf5182e1f7aa9a86cb5576cc53276740c5ef6e0235f8ad4b19c675cb",
           "bytes": 538295
         }
       ]
@@ -36,7 +36,7 @@
       "synthetic": true,
       "source": "public-VOC/plugin/samples/sample.csv",
       "source_sha256": "4b4241ed83e386aac1245b5ff4b4eb1360dfda9fc52fe00348d8d34ec8f8eaec",
-      "method": "기존 합성 본문 3종을 재사용하고 120건의 가상 번호·날짜·완료일로 확장. 본문 다양성/분류 품질 평가용이 아님.",
+      "method": "기존 합성 예제를 참고해 원본 매뉴얼의 현황·키워드·프로세스 검증용 12종 본문과 120건의 가상 일시·부서·지역·인구·WGS84 좌표·입력 토픽을 생성. 실제 지역·실제 기관 자료 아님. 결정적 생성식, 무작위 없음.",
       "columns": [
         "민원등록일",
         "민원내용",
@@ -44,18 +44,32 @@
         "민원제목",
         "처리부서",
         "민원유형",
-        "처리완료일"
+        "처리완료일",
+        "담당자지정일시",
+        "최종민원처리기한",
+        "연장처리횟수",
+        "구분",
+        "법정동",
+        "시군구",
+        "위도",
+        "경도",
+        "지역인구",
+        "분석대상",
+        "상담중분류",
+        "분석키워드",
+        "Topic_keyword",
+        "Topic_Number"
       ],
       "files": [
         {
           "path": "public-voc-sample.csv",
-          "sha256": "c0a006bafa0a62a79e88f7bb954afd339da2fd8b345456f8158408eda6df462a",
-          "bytes": 15919
+          "sha256": "f1cc306c5c95030870ce4c11af45f1e4d243f44f0f0439ebc04cf89a824760fd",
+          "bytes": 39453
         },
         {
           "path": "public-voc-sample.xlsx",
-          "sha256": "fab0d9e8ab781f1c54765ab5ae7d3f83bf7371339b295be4cba8dbb7306250f5",
-          "bytes": 10138
+          "sha256": "e0721d31c53190a260a0e6cc3b1a60b9abf3d1a89e9d9a8a9005bddff4b0e9e0",
+          "bytes": 18004
         }
       ]
     }
