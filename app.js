@@ -1,4 +1,6 @@
+if(!API_BASE)document.getElementById('local-llm-nav')?.removeAttribute('hidden');
 import {API_BASE} from './config.js';
+if(!API_BASE)document.getElementById('model-plugins-nav')?.removeAttribute('hidden');
 let lastGeneratedPrompt='';
 import {createExamplePrompts} from './prompts.js';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -85,7 +87,7 @@ $('#export-csv').onclick=()=>{const records=result.datasets.filter(d=>!d.error).
 $('#export-md').onclick=()=>{if(result.report)download('온데이터-보고서.md',markdown(),'text/markdown;charset=utf-8');};
 $('#export-html').onclick=async()=>{if(!result.report)return;const css=await fetch('./style.css').then(r=>r.text());download('온데이터-보고서.html',`<!doctype html><html lang="ko"><meta charset="utf-8"><title>${esc(result.report.title)}</title><style>${css}</style><body><div class="export-report" style="max-width:1000px;margin:auto">${reportHtml()}${metricCards()}<div class="chart-grid">${result.datasets.filter(d=>!d.error).map(d=>`<div class="panel"><h3>${esc(d.name)}</h3>${d.metadata?.indicator?lineChart(d):categoryChart(d)}</div>`).join('')}</div>${tableHtml()}</div></body></html>`,'text/html;charset=utf-8');};
 $('#print').onclick=()=>{if(result?.report)view='report';renderResult();window.print();};
-try{const res=await fetch(API_BASE+'/api/catalog');if(!res.ok)throw new Error('소스 목록을 불러오지 못했습니다.');const data=await res.json();catalog=data.sources;$('#source-total').textContent=catalog.length;$('#filter-total').textContent=catalog.length;$('#observation-date').value=data.defaultObservationDate;$('#region').innerHTML=data.regions.map(r=>`<option>${r}</option>`).join('');$('#model-badge').textContent=`✦ ${data.model}`;if(!data.configured)showError('원자료 미리보기는 바로 사용할 수 있습니다. AI 분석에는 서버 .env의 MiniMax 키 설정이 필요합니다.');renderCards();renderSelection();renderHistory();refreshExamples();}catch(e){showError(e.message);}
+try{const res=await fetch(API_BASE+'/api/catalog');if(!res.ok)throw new Error('소스 목록을 불러오지 못했습니다.');const data=await res.json();catalog=data.sources;document.querySelector('.private-note').textContent=data.provider==='local'?'선택한 데이터를 로컬 LLM으로 분석합니다':'선택한 데이터가 MiniMax로 전송됩니다';$('#source-total').textContent=catalog.length;$('#filter-total').textContent=catalog.length;$('#observation-date').value=data.defaultObservationDate;$('#region').innerHTML=data.regions.map(r=>`<option>${r}</option>`).join('');$('#model-badge').textContent=`✦ ${data.model}`;if(!data.configured)showError('원자료 미리보기는 바로 사용할 수 있습니다. AI 분석에는 서버 .env의 MiniMax 키 설정이 필요합니다.');renderCards();renderSelection();renderHistory();refreshExamples();}catch(e){showError(e.message);}
 
 function refreshExamples(){
  const examples=createExamplePrompts([...selected],catalog,{startYear:$('#start-year').value,endYear:$('#end-year').value,observationDate:$('#observation-date').value});

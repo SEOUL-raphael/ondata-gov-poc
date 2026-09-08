@@ -5,7 +5,7 @@
  <a class="brand" href="./" aria-label="온데이터 홈"><span class="brand-symbol">온</span><span>온데이터<small>PUBLIC DATA INTELLIGENCE</small></span></a>
  <button class="new-analysis" id="new-analysis"><span>＋</span> 새 분석 시작</button>
  <div class="nav-label">WORKSPACE</div>
- <nav><button class="nav-item active" data-nav="workspace"><span data-icon="spark"></span> AI 분석 워크스페이스</button><button class="nav-item" data-nav="sources"><span data-icon="grid"></span> 데이터 소스 <span class="nav-count" id="source-total">10</span></button><button class="nav-item" data-nav="history"><span data-icon="history"></span> 분석 기록 <span class="nav-count" id="history-count">0</span></button></nav>
+ <nav><a class="nav-item" id="local-llm-nav" href="/llm" hidden>로컬 LLM · 모델 선택</a><a class="nav-item" id="web-models-nav" href="./standard-models.html">표준분석 모델 플러그인</a><button class="nav-item active" data-nav="workspace"><span data-icon="spark"></span> 범용 분석 워크스페이스</button><button class="nav-item" data-nav="sources"><span data-icon="grid"></span> 데이터 소스 <span class="nav-count" id="source-total">10</span></button><button class="nav-item" data-nav="history"><span data-icon="history"></span> 분석 기록 <span class="nav-count" id="history-count">0</span></button></nav>
  <div class="sidebar-note"><span class="note-symbol">◈</span><strong>데이터에서 정책의 실마리를</strong><p>선택한 공공데이터를 근거로<br>질문하고, 발견하고, 공유하세요.</p><span class="poc-tag">범정부 데이터분석 PoC</span></div>
  <div class="sidebar-bottom"><span class="avatar">G</span><div>공공데이터 분석가<small>동료 공유 워크스페이스</small></div><span class="online-dot"></span></div>
 </aside>
@@ -28,10 +28,11 @@
   <div id="error" role="alert" hidden></div>
   <section id="results" hidden><div class="section-heading result-heading"><div><span class="step">03</span><h2>분석 결과</h2><span id="result-status"></span></div><div class="export-actions"><button id="export-json">JSON</button><button id="export-csv">CSV</button><button id="export-md">보고서 MD</button><button id="export-html">HTML</button><button id="print">인쇄 / PDF</button></div></div><div class="result-tabs"><button class="active" data-view="dashboard">대시보드</button><button data-view="report">분석 보고서</button><button data-view="table">데이터 테이블</button><button data-view="map">위치 보기</button><button data-view="evidence">출처 · 실행 기록</button></div><div id="result-content"></div></section>
   <section class="getting-started" id="getting-started"><div class="intro-icon" data-icon="chart"></div><div><h3>흩어진 데이터, 하나의 분석으로</h3><p>소스 선택부터 시각화와 보고서까지, 하나의 워크스페이스에서 시작하세요.</p></div><div class="mini-flow"><span>소스 선택</span><b>→</b><span>AI 분석</span><b>→</b><span>인사이트</span></div></section>
+<section id="standard-models" hidden><div class="section-heading"><div><h2>분야별 표준분석 모델</h2><span class="subheading">필요한 전문 분석을 추가하세요</span></div><button class="button secondary" id="standard-model-refresh">다시 탐색</button></div><p id="standard-model-status" aria-live="polite">실행 폴더의 모델을 확인하고 있습니다.</p><div id="standard-model-cards" class="source-grid"></div><a href="/models">모델 관리 →</a></section>
   <footer>온데이터 <span>·</span> 범정부 데이터분석시스템 LLM 전환 PoC <a href="https://ada.im/" target="_blank" rel="noreferrer">Inspired by Ada.im ↗</a></footer>
  </div>
  <section class="workspace" id="history-panel" hidden><div class="section-heading"><h2>분석 기록</h2><button class="button secondary" id="clear-history">기록 지우기</button></div><p class="muted">이 브라우저에 최근 10개 분석을 저장합니다. 데이터 소스를 바꾸면 새 분석으로 시작합니다.</p><div id="history-list"></div></section>
 </main>
 <dialog id="source-dialog"><div id="source-detail"></div><form method="dialog"><button class="button primary">확인</button></form></dialog>
-<script type="module" src="./app.js"></script>
+<script type="module" src="./app.js"></script><script type="module" src="./web-standard-cards.js"></script>
 </body></html>
