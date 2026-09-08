@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>온데이터 · 공공데이터 AI 분석</title><link rel="stylesheet" href="./style.css"></head>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>온데이터 · 공공데이터 AI 분석</title><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./home-explorer.css"></head>
 <body>
 <aside class="sidebar">
  <a class="brand" href="./" aria-label="온데이터 홈"><span class="brand-symbol">온</span><span>온데이터<small>PUBLIC DATA INTELLIGENCE</small></span></a>
@@ -13,9 +13,20 @@
  <header class="topbar"><div><span class="breadcrumb">워크스페이스</span><span class="slash">/</span><strong id="page-title">새 분석</strong></div><div class="topbar-right"><span class="local-badge"><i></i> 공유 PoC</span><a href="https://hollobit.github.io/GAPI2/ecosystem.html" target="_blank" rel="noreferrer">데이터 생태계 ↗</a></div></header>
  <div class="workspace" id="workspace">
   <section class="hero"><div class="eyebrow"><span class="tiny-star">✳</span> PUBLIC DATA, NEW PERSPECTIVES</div><h1>공공데이터에 질문을 더하다<span>.</span></h1><p>필요한 데이터를 고르면, AI가 근거를 연결하고 인사이트를 발견합니다.</p><div class="hero-badges"><span><i class="green-dot"></i> 인증 없는 데이터부터</span><span>◈ 선택한 소스만 분석</span><span id="model-badge">✦ MiniMax-M3</span></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="art-core">✳</div><span class="art-node node-a">▤</span><span class="art-node node-b">▥</span><span class="art-node node-c">⌁</span></div></section>
+  <div id="home-tabs" class="home-tabs" role="tablist" aria-label="탐색 방식">
+   <button id="home-tab-data" role="tab" aria-selected="true" aria-controls="home-panel-data">데이터 찾기<small>공개 데이터를 선택하고 AI로 분석</small></button>
+   <button id="home-tab-models" role="tab" aria-selected="false" aria-controls="home-panel-models" tabindex="-1">표준분석모델로 분석하기<small>목적에 맞는 모델과 입력 찾기</small></button>
+  </div>
+  <section id="home-panel-models" role="tabpanel" aria-labelledby="home-tab-models" hidden>
+   <div class="section-heading"><h2>표준분석모델 찾기</h2><input id="model-search" type="search" aria-label="표준분석모델 검색" placeholder="분석 목적, 모델, 필수 컬럼 검색"></div>
+   <p id="model-selection-summary" aria-live="polite"></p><div id="home-model-cards" class="source-grid"></div>
+  </section>
+  <div id="home-panel-data" role="tabpanel" aria-labelledby="home-tab-data">
+  <div id="model-input-request" class="panel" hidden aria-live="polite"></div>
+  <button id="see-compatible-models" class="button secondary">선택 데이터와 호환되는 모델 확인 →</button>
   <section id="sources-section"><div class="section-heading"><div><span class="step">01</span><h2>분석할 데이터 선택</h2><span class="subheading">필요한 소스만 연결하세요</span></div><span class="selection-count" id="selection-count">0개 선택됨</span></div>
    <div class="filters"><div class="filter-tabs" role="group" aria-label="소스 유형"><button class="filter active" data-filter="all">전체 <span id="filter-total">10</span></button><button class="filter" data-filter="API">공공 API</button><button class="filter" data-filter="교통">서울 교통</button><button class="filter" data-filter="인구·사회">인구·사회</button><button class="filter" data-filter="경제·고용">경제·고용</button></div><div class="search-wrap"><span data-icon="search"></span><input id="source-search" aria-label="데이터 소스 검색" placeholder="데이터명, 기관으로 검색"></div><label class="available-toggle"><input id="available-only" type="checkbox" checked> 바로 사용 가능한 소스만</label></div>
-   <div class="source-grid" id="source-grid"></div>
+   <div class="source-grid" id="source-grid"><p role="status">데이터 목록을 불러오는 중입니다.</p></div>
    <p class="source-footnote"><span data-icon="info"></span> 실제 수치 지표가 있는 8개 소스만 제공합니다. 서울 교통은 5건 표본이며 문서·장소·카탈로그 검색은 제외했습니다.</p>
   </section>
   <section class="question-section"><div class="section-heading"><div><span class="step">02</span><h2>어떤 인사이트가 필요한가요?</h2></div><span class="private-note">선택한 데이터가 MiniMax로 전송됩니다</span></div>
@@ -28,11 +39,11 @@
   <div id="error" role="alert" hidden></div>
   <section id="results" hidden><div class="section-heading result-heading"><div><span class="step">03</span><h2>분석 결과</h2><span id="result-status"></span></div><div class="export-actions"><button id="export-json">JSON</button><button id="export-csv">CSV</button><button id="export-md">보고서 MD</button><button id="export-html">HTML</button><button id="print">인쇄 / PDF</button></div></div><div class="result-tabs"><button class="active" data-view="dashboard">대시보드</button><button data-view="report">분석 보고서</button><button data-view="table">데이터 테이블</button><button data-view="map">위치 보기</button><button data-view="evidence">출처 · 실행 기록</button></div><div id="result-content"></div></section>
   <section class="getting-started" id="getting-started"><div class="intro-icon" data-icon="chart"></div><div><h3>흩어진 데이터, 하나의 분석으로</h3><p>소스 선택부터 시각화와 보고서까지, 하나의 워크스페이스에서 시작하세요.</p></div><div class="mini-flow"><span>소스 선택</span><b>→</b><span>AI 분석</span><b>→</b><span>인사이트</span></div></section>
-<section id="standard-models" hidden><div class="section-heading"><div><h2>분야별 표준분석 모델</h2><span class="subheading">필요한 전문 분석을 추가하세요</span></div><button class="button secondary" id="standard-model-refresh">다시 탐색</button></div><p id="standard-model-status" aria-live="polite">실행 폴더의 모델을 확인하고 있습니다.</p><div id="standard-model-cards" class="source-grid"></div><a href="/models">모델 관리 →</a></section>
+</div><section id="standard-models" hidden><div class="section-heading"><div><h2>분야별 표준분석 모델</h2><span class="subheading">필요한 전문 분석을 추가하세요</span></div><button class="button secondary" id="standard-model-refresh">다시 탐색</button></div><p id="standard-model-status" aria-live="polite">실행 폴더의 모델을 확인하고 있습니다.</p><div id="standard-model-cards" class="source-grid"></div><a href="/models">모델 관리 →</a></section>
   <footer>온데이터 <span>·</span> 범정부 데이터분석시스템 LLM 전환 PoC <a href="https://ada.im/" target="_blank" rel="noreferrer">Inspired by Ada.im ↗</a></footer>
  </div>
  <section class="workspace" id="history-panel" hidden><div class="section-heading"><h2>분석 기록</h2><button class="button secondary" id="clear-history">기록 지우기</button></div><p class="muted">이 브라우저에 최근 10개 분석을 저장합니다. 데이터 소스를 바꾸면 새 분석으로 시작합니다.</p><div id="history-list"></div></section>
 </main>
 <dialog id="source-dialog"><div id="source-detail"></div><form method="dialog"><button class="button primary">확인</button></form></dialog>
-<script type="module" src="./app.js"></script><script type="module" src="./web-standard-cards.js"></script>
+<script type="module" src="./home-explorer.js"></script><script type="module" src="./app.js"></script>
 </body></html>
