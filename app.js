@@ -107,3 +107,5 @@ function refreshExamples(){
 ['#start-year','#end-year','#observation-date'].forEach(id=>$(id).addEventListener('change',()=>{invalidate();refreshExamples();publishSelection();}));
 
 window.addEventListener('popstate',()=>{if(!catalog.length||busy)return;const next=selectionFrom(location.search,catalog.map(s=>s.id));if(!new URLSearchParams(location.search).has('sources'))return;if(JSON.stringify(next.sourceIds)===JSON.stringify([...selected])&&Object.entries({startYear:'start-year',endYear:'end-year',observationDate:'observation-date'}).every(([key,id])=>next.settings[key]===undefined||String(next.settings[key])===$('#'+id).value))return;selected=new Set(next.sourceIds);for(const [key,id] of Object.entries({startYear:'start-year',endYear:'end-year',observationDate:'observation-date'}))if(next.settings[key]!==undefined)$('#'+id).value=next.settings[key];invalidate();renderCards();renderSelection();refreshExamples();});
+
+window.addEventListener('ondata:navigate',e=>navigate(e.detail));
