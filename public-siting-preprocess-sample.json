@@ -1,11 +1,11 @@
 {
   "grids": {
     "metadata": {
-      "region": "SYNTHETIC",
+      "region": "SYNTHETIC-SEOUL-DEMO",
       "period": "2026-01-01",
-      "source": "synthetic fixture",
+      "source": "Synthetic values on a demonstration grid in Seoul; not observed local data",
       "kind": "synthetic",
-      "crs": "LOCAL_METRE",
+      "crs": "EPSG:5179",
       "grid_size_m": 100
     },
     "features": [
@@ -19,24 +19,24 @@
           "coordinates": [
             [
               [
-                0,
-                0
+                953000,
+                1952000
               ],
               [
-                100,
-                0
+                953100,
+                1952000
               ],
               [
-                100,
-                100
+                953100,
+                1952100
               ],
               [
-                0,
-                100
+                953000,
+                1952100
               ],
               [
-                0,
-                0
+                953000,
+                1952000
               ]
             ]
           ]
@@ -47,21 +47,21 @@
   "layers": [
     {
       "metadata": {
-        "region": "SYNTHETIC",
+        "region": "SYNTHETIC-SEOUL-DEMO",
         "period": "2026-01-01",
-        "source": "synthetic fixture",
+        "source": "Synthetic values on a demonstration grid in Seoul; not observed local data",
         "kind": "synthetic",
-        "crs": "LOCAL_METRE"
+        "crs": "EPSG:5179"
       },
       "rows": [
         {
-          "x": 50,
-          "y": 50,
+          "x": 953050,
+          "y": 1952050,
           "value": 4
         },
         {
-          "x": 60,
-          "y": 50,
+          "x": 953060,
+          "y": 1952050,
           "value": 6
         }
       ],

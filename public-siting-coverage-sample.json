@@ -8,80 +8,84 @@
   },
   "demand": {
     "metadata": {
-      "region": "SYNTHETIC-GRID",
+      "region": "SYNTHETIC-SEOUL-DEMO",
       "period": "2026-01-01",
-      "source": "ondata deterministic synthetic example; no original records",
+      "source": "Synthetic values on a demonstration grid in Seoul; not observed local data",
       "kind": "synthetic",
-      "crs": "LOCAL_METRE",
+      "crs": "EPSG:5179",
       "weight_unit": "명",
-      "semantic_id": "demand-points-v1"
+      "semantic_id": "demand-points-v1",
+      "grid_size_m": 100
     },
     "rows": [
       {
         "id": "D1",
-        "x": 0,
-        "y": 0,
+        "x": 953050,
+        "y": 1952050,
         "weight": 10
       },
       {
         "id": "D2",
-        "x": 100,
-        "y": 0,
+        "x": 953150,
+        "y": 1952050,
         "weight": 20
       },
       {
         "id": "D3",
-        "x": 300,
-        "y": 0,
+        "x": 953350,
+        "y": 1952050,
         "weight": 40
       },
       {
         "id": "D4",
-        "x": 400,
-        "y": 0,
+        "x": 953450,
+        "y": 1952050,
         "weight": 30
       }
     ]
   },
   "candidates": {
     "metadata": {
-      "region": "SYNTHETIC-GRID",
+      "region": "SYNTHETIC-SEOUL-DEMO",
       "period": "2026-01-01",
-      "source": "ondata deterministic synthetic example; no original records",
+      "source": "Synthetic values on a demonstration grid in Seoul; not observed local data",
       "kind": "synthetic",
-      "crs": "LOCAL_METRE",
+      "crs": "EPSG:5179",
       "weight_unit": "명",
-      "semantic_id": "candidate-sites-v1"
+      "semantic_id": "candidate-sites-v1",
+      "grid_size_m": 100
     },
     "rows": [
       {
         "id": "C1",
-        "x": 100,
-        "y": 0
+        "x": 953150,
+        "y": 1952050
       },
       {
         "id": "C2",
-        "x": 350,
-        "y": 0
+        "x": 953400,
+        "y": 1952050
       }
     ]
   },
   "existing": {
     "metadata": {
-      "region": "SYNTHETIC-GRID",
+      "region": "SYNTHETIC-SEOUL-DEMO",
       "period": "2026-01-01",
-      "source": "ondata deterministic synthetic example; no original records",
+      "source": "Synthetic values on a demonstration grid in Seoul; not observed local data",
       "kind": "synthetic",
-      "crs": "LOCAL_METRE",
+      "crs": "EPSG:5179",
       "weight_unit": "명",
-      "semantic_id": "facility-points-v1"
+      "semantic_id": "facility-points-v1",
+      "grid_size_m": 100
     },
     "rows": [
       {
         "id": "E1",
-        "x": 0,
-        "y": 0
+        "x": 953050,
+        "y": 1952050
       }
     ]
-  }
+  },
+  "example_description": "서울 지도 위에 배치한 합성 정답 예제입니다. 수요 4개 격자에 10·20·40·30명, 기존 시설 1개, 후보지 2개를 가정합니다. 반경 110m에서 기존 30명, C2 추가 후 100명을 커버합니다."
 }
