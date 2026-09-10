@@ -1,0 +1,86 @@
+{
+  "grids": {
+    "metadata": {
+      "region": "SYNTHETIC",
+      "period": "2026-01-01",
+      "source": "synthetic fixture",
+      "kind": "synthetic",
+      "crs": "LOCAL_METRE",
+      "grid_size_m": 100
+    },
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "g1"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                100,
+                0
+              ],
+              [
+                100,
+                100
+              ],
+              [
+                0,
+                100
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "layers": [
+    {
+      "metadata": {
+        "region": "SYNTHETIC",
+        "period": "2026-01-01",
+        "source": "synthetic fixture",
+        "kind": "synthetic",
+        "crs": "LOCAL_METRE"
+      },
+      "rows": [
+        {
+          "x": 50,
+          "y": 50,
+          "value": 4
+        },
+        {
+          "x": 60,
+          "y": 50,
+          "value": 6
+        }
+      ],
+      "aggregations": [
+        {
+          "op": "sum",
+          "column": "value",
+          "output": "sum_value"
+        },
+        {
+          "op": "mean",
+          "column": "value",
+          "output": "mean_value"
+        },
+        {
+          "op": "count",
+          "output": "point_count"
+        }
+      ]
+    }
+  ]
+}

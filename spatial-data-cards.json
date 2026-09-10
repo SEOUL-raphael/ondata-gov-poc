@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "seoul-bike-stations-file",
+      "name": "서울 따릉이 대여소 위치 파일",
+      "provider": "서울특별시",
+      "url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+      "type": "file",
+      "category": "공간·시설",
+      "available": true,
+      "requiresKey": false,
+      "auth": "공식 다운로드 후 파일 입력",
+      "quantitative": false,
+      "description": "공공자전거 대여소 위치. 실시간 자전거 잔여 수량과 구분합니다.",
+      "scope": "서울 · 파일별 기준일 · 전체 범위는 파일 확인",
+      "analysisInput": {
+        "schema_id": "facility-points-v1",
+        "columns": [
+          "id",
+          "x",
+          "y"
+        ]
+      },
+      "input_contract": {
+        "semantic_id": "facility-points-v1",
+        "columns": [
+          "id",
+          "x",
+          "y"
+        ],
+        "format": "json",
+        "crs": "EPSG:4326",
+        "region": "KR-11"
+      },
+      "period": "파일별 기준일 확인",
+      "update_cycle": "반기 자료; 포털 메타데이터 수시 자동 갱신",
+      "formats": [
+        "xlsx",
+        "csv"
+      ],
+      "license": "공공누리 제1유형 출처표시",
+      "license_url": "https://www.data.go.kr/catalog/15051893/fileData.json",
+      "crs": "EPSG:4326",
+      "contract": {
+        "crs": "EPSG:4326",
+        "region": "KR-11"
+      },
+      "adapter": "facility-columns-v1",
+      "aliases": {
+        "id": [
+          "대여소번호",
+          "대여소 번호",
+          "대여소_ID",
+          "대여소ID",
+          "대여소명"
+        ],
+        "x": [
+          "경도",
+          "stationLongitude"
+        ],
+        "y": [
+          "위도",
+          "stationLatitude"
+        ]
+      },
+      "access": "공식 XLSX 다운로드 POST 응답을 확인했습니다(2026-09-09). Access-Control-Allow-Origin 헤더가 없어 브라우저 직접 연결 대신 확인된 시점 JSON 또는 공식 파일 입력을 사용합니다. 인증키 불필요; 호출 한도는 미공시/미확인.",
+      "snapshot": {
+        "path": "seoul-bike-stations-202606-snapshot.json",
+        "period": "2026-06",
+        "rows": 2789,
+        "crs": "EPSG:4326",
+        "license": "공공누리 제1유형",
+        "original_sha256": "a2dcee10a341ac9d6beaf14f83c1e46b38bc96ffc8289340508b01cac0d464f1"
+      }
+    },
+    {
+      "id": "ngii-grid-file",
+      "name": "국토통계 격자 지표 파일",
+      "provider": "국토지리정보원",
+      "url": "https://map.ngii.go.kr/ms/map/NlipMap.do",
+      "type": "file",
+      "category": "공간·시설",
+      "available": true,
+      "requiresKey": false,
+      "auth": "공식 다운로드 후 파일 입력",
+      "quantitative": false,
+      "description": "인구·건물·토지 지표를 지역·시점·격자 크기별로 다운로드합니다.",
+      "scope": "전국 중 사용자가 선택한 지역·격자 크기",
+      "analysisInput": {
+        "schema_id": "grid-indicators-v1",
+        "columns": [
+          "gid",
+          "value",
+          "geometry"
+        ]
+      },
+      "input_contract": {
+        "semantic_id": "grid-indicators-v1",
+        "columns": [
+          "gid",
+          "value",
+          "geometry"
+        ],
+        "format": "json"
+      },
+      "period": "다운로드 자료 기준일 확인",
+      "update_cycle": "지표·자료별 상이; 파일 메타데이터 확인",
+      "formats": [
+        "shp",
+        "geojson"
+      ],
+      "license": "제공 자료별 이용조건 및 제3자 권리 확인 필요",
+      "license_url": "https://map.ngii.go.kr/nw/common/login/publicInformation.do",
+      "crs": "SHP PRJ 확인 필요",
+      "contract": {},
+      "adapter": "grid-geojson-v1",
+      "access": "공식 지도에서 다운로드; 로그인/이용동의 여부는 자료 선택 시 확인. 공개 무인증 수집 API 검증 없음."
+    },
+    {
+      "id": "sbiz-shops-file",
+      "name": "상가(상권) 업소 위치 파일",
+      "provider": "소상공인시장진흥공단",
+      "url": "https://www.data.go.kr/data/15083033/fileData.do",
+      "type": "file",
+      "category": "공간·시설",
+      "available": true,
+      "requiresKey": false,
+      "auth": "공식 다운로드 후 파일 입력",
+      "quantitative": false,
+      "description": "업소별 업종·주소·경위도. 업종 분류 개편에 대한 명시적 대응표가 필요합니다.",
+      "scope": "전국 시도별 파일",
+      "analysisInput": {
+        "schema_id": "business-points-v1",
+        "columns": [
+          "id",
+          "x",
+          "y",
+          "category"
+        ]
+      },
+      "input_contract": {
+        "semantic_id": "business-points-v1",
+        "columns": [
+          "id",
+          "x",
+          "y",
+          "category"
+        ],
+        "format": "json",
+        "crs": "EPSG:4326"
+      },
+      "period": "2026-06-30 게시자료 확인",
+      "update_cycle": "분기",
+      "formats": [
+        "csv"
+      ],
+      "license": "자료별 이용조건 확인 후 사용; 이 플러그인은 원자료 재배포 안 함",
+      "crs": "EPSG:4326",
+      "contract": {
+        "crs": "EPSG:4326"
+      },
+      "adapter": "business-columns-v1",
+      "aliases": {
+        "id": [
+          "상가업소번호"
+        ],
+        "x": [
+          "경도"
+        ],
+        "y": [
+          "위도"
+        ],
+        "category": [
+          "상권업종대분류명"
+        ]
+      },
+      "access": "파일 다운로드 또는 별도 인증키 API. 브라우저 수집 CORS 미검증; 파일 입력 지원."
+    },
+    {
+      "id": "ev-chargers-file",
+      "name": "전국 전기차 충전소 위치 파일",
+      "provider": "한국환경공단",
+      "url": "https://www.data.go.kr/data/15013115/standard.do",
+      "type": "file",
+      "category": "공간·시설",
+      "available": true,
+      "requiresKey": true,
+      "auth": "공식 다운로드 후 파일 입력",
+      "quantitative": false,
+      "description": "충전소 위치와 충전기 정보. 충전기별 행은 충전소 ID로 집계해야 합니다.",
+      "scope": "전국; 조회/파일 기준",
+      "analysisInput": {
+        "schema_id": "facility-points-v1",
+        "columns": [
+          "id",
+          "x",
+          "y"
+        ]
+      },
+      "input_contract": {
+        "semantic_id": "facility-points-v1",
+        "columns": [
+          "id",
+          "x",
+          "y"
+        ],
+        "format": "json",
+        "crs": "EPSG:4326"
+      },
+      "period": "조회/다운로드 기준일 확인",
+      "update_cycle": "위치·상태 서비스별 상이",
+      "formats": [
+        "csv",
+        "json",
+        "xml"
+      ],
+      "license": "원 제공 페이지의 현행 이용조건 확인 필요",
+      "crs": "EPSG:4326",
+      "contract": {
+        "crs": "EPSG:4326"
+      },
+      "adapter": "facility-columns-v1",
+      "aliases": {
+        "id": [
+          "statId",
+          "충전소ID",
+          "충전소아이디"
+        ],
+        "x": [
+          "lng",
+          "경도"
+        ],
+        "y": [
+          "lat",
+          "위도"
+        ]
+      },
+      "access": "API 서비스키 필요; 키 미설정. 공식 파일을 내려받은 후 입력하세요."
+    }
+  ]
+}

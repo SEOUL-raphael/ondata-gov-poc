@@ -1,0 +1,87 @@
+{
+  "mode": "coverage",
+  "options": {
+    "count": 1,
+    "radius": 110,
+    "separation": 0,
+    "method": "exact"
+  },
+  "demand": {
+    "metadata": {
+      "region": "SYNTHETIC-GRID",
+      "period": "2026-01-01",
+      "source": "ondata deterministic synthetic example; no original records",
+      "kind": "synthetic",
+      "crs": "LOCAL_METRE",
+      "weight_unit": "명",
+      "semantic_id": "demand-points-v1"
+    },
+    "rows": [
+      {
+        "id": "D1",
+        "x": 0,
+        "y": 0,
+        "weight": 10
+      },
+      {
+        "id": "D2",
+        "x": 100,
+        "y": 0,
+        "weight": 20
+      },
+      {
+        "id": "D3",
+        "x": 300,
+        "y": 0,
+        "weight": 40
+      },
+      {
+        "id": "D4",
+        "x": 400,
+        "y": 0,
+        "weight": 30
+      }
+    ]
+  },
+  "candidates": {
+    "metadata": {
+      "region": "SYNTHETIC-GRID",
+      "period": "2026-01-01",
+      "source": "ondata deterministic synthetic example; no original records",
+      "kind": "synthetic",
+      "crs": "LOCAL_METRE",
+      "weight_unit": "명",
+      "semantic_id": "candidate-sites-v1"
+    },
+    "rows": [
+      {
+        "id": "C1",
+        "x": 100,
+        "y": 0
+      },
+      {
+        "id": "C2",
+        "x": 350,
+        "y": 0
+      }
+    ]
+  },
+  "existing": {
+    "metadata": {
+      "region": "SYNTHETIC-GRID",
+      "period": "2026-01-01",
+      "source": "ondata deterministic synthetic example; no original records",
+      "kind": "synthetic",
+      "crs": "LOCAL_METRE",
+      "weight_unit": "명",
+      "semantic_id": "facility-points-v1"
+    },
+    "rows": [
+      {
+        "id": "E1",
+        "x": 0,
+        "y": 0
+      }
+    ]
+  }
+}
