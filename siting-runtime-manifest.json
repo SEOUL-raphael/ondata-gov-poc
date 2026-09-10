@@ -1,0 +1,71 @@
+{
+  "version": "314.0.6",
+  "hosting": "same-origin",
+  "files": [
+    {
+      "path": "vendor/siting-python-314.0.6/certifi-2026.4.22-py3-none-any.whl",
+      "bytes": 135707,
+      "sha256": "733cbce713c1165e05ed96981a8d54d2f5e522a1ad465350a562ec2352823c65"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/joblib-1.5.3-py3-none-any.whl",
+      "bytes": 180317,
+      "sha256": "9db651775f229d6f30f128f7c36c015aee26e414dd628b04d5bab5087f92e964"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/numpy-2.4.6-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+      "bytes": 2918760,
+      "sha256": "32959d4137cec8143d75016d029281df3d2e80a232896ed903c2b59e1c44ee9f"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/pyproj-3.7.2-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+      "bytes": 3779126,
+      "sha256": "2d6a7ca94d5fb35fdd631644a69b9eabe283c0ef9656588216b4f6ae5db0156c"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/scikit_learn-1.8.0-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+      "bytes": 4449200,
+      "sha256": "3c6dcc1f2afc32ece85382261b794473b22a69f8c885968835147699febc2ea3"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/scipy-1.18.0-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+      "bytes": 14029768,
+      "sha256": "8512aee3e4b36b5a79523628d97d0d34612a366aecbb5b44a08c7ae45dd50d57"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/shapely-2.1.2-cp314-cp314-pyemscripten_2026_0_wasm32.whl",
+      "bytes": 849217,
+      "sha256": "6a80ae3a464fb9c7a41a3d8a7ff34644494e38f017d312cdf7720b813c92a31e"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/threadpoolctl-3.6.0-py3-none-any.whl",
+      "bytes": 18638,
+      "sha256": "317b1ec4423325c9c783d34145507c9304eb0b61f406c1a41db9a8776404843e"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/pyodide.mjs",
+      "bytes": 17931,
+      "sha256": "69e3f6ccec3e14b465df60be577ca62f536251406b9a00cce019eac5252a2495"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/pyodide.asm.mjs",
+      "bytes": 1250344,
+      "sha256": "2ac5eba365ec12839c75c03b39b3be1dd63b798852cc460b014b52238be042f7"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/pyodide.asm.wasm",
+      "bytes": 9598218,
+      "sha256": "3a0a00dfeaa348ac20f9ef09904233d32d33f644339662d4af368f8a2010f37a"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/python_stdlib.zip",
+      "bytes": 2545564,
+      "sha256": "80c5be6babfe03297069703410c3c29404dcf2525d2b128746bae5536f94831f"
+    },
+    {
+      "path": "vendor/siting-python-314.0.6/pyodide-lock.json",
+      "bytes": 114440,
+      "sha256": "3fdaef09e9e365c85e002737720f8d0ab8f278c1c244a2dde6a37663cf488ad4"
+    }
+  ]
+}
