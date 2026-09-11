@@ -5,3 +5,58 @@
 @media(max-width:850px){.sidebar{width:70px;padding:20px 12px}.brand>span:last-child,.new-analysis,.nav-label,.sidebar-note,.sidebar-bottom,.nav-item{display:none}.brand-symbol{width:40px;height:40px}.sidebar nav{margin-top:30px}main{margin-left:70px}.source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-art{display:none}.hero p{max-width:none}.available-toggle{margin-left:auto}.filters{flex-wrap:wrap}.search-wrap{margin-left:auto}.private-note{display:none}.hero{padding:32px 0}.topbar-right>a{display:none}.section-heading{flex-wrap:wrap}.result-heading>div{flex-wrap:wrap}.chart-grid{grid-template-columns:1fr}.query-fields{grid-template-columns:repeat(2,1fr)}.result-tabs{gap:15px}.run-actions{margin-left:auto}h1{font-size:28px}}
 @media(max-width:560px){.sidebar{display:none}main{margin-left:0}.workspace{padding:0 18px}.topbar{height:58px;padding:0 18px}.source-grid{grid-template-columns:1fr}.hero{padding-top:26px}h1{font-size:25px}.hero p{font-size:11px;line-height:1.8}.hero-badges{gap:10px;font-size:8px}.search-wrap{width:100%;order:3}.source-card{min-height:168px}.run-bar{display:block}.run-actions{margin-top:15px}.run-actions .button{flex:1;justify-content:center}.suggestions{flex-wrap:wrap}.suggestions>span{width:100%;margin-bottom:3px}.metric-grid{grid-template-columns:1fr}.metric{padding:15px}.metric strong{font-size:22px}.result-tabs{gap:13px;overflow:auto;white-space:nowrap}.result-tabs button{font-size:10px}.export-actions{flex-wrap:wrap}footer a{float:none;display:block;margin-top:10px}.private-note{display:none}.getting-started{padding:15px}.getting-started p{line-height:1.8}}
 @media print{.sidebar,.topbar,.hero,#sources-section,.question-section,#progress,#error,.getting-started,footer,.result-heading,.result-tabs{display:none!important}main{margin:0}.workspace{padding:0;max-width:none}#results{display:block!important}.panel,.result-summary,.metric{break-inside:avoid}.chart-grid{display:block}.table-wrap{max-height:none;overflow:visible}table{white-space:normal}.export-actions,.chart-mode,.table-tools{display:none}body{background:white}.panel{border-color:#ddd}.source-link{color:#222}}
+
+﻿/* Shared readable typography: default body 18px, supporting text at least 16px. */
+html{font-size:18px}
+body{font-size:18px;line-height:1.65;color:#243b35}
+body :is(p,li,label,button,input,select,textarea,summary,td,th,dt,dd){font-size:18px!important;line-height:1.65}
+body :is(small,.hint,.muted,.provider,.card-description,.card-meta,.source-coverage,.type-badge,.row-count,.source-link,.nav-label,.shell-footer,.siting-muted,.siting-help,.siting-eyebrow,.gis-map-footer,.gis-heading p,.gis-footnote,.compatibility,.breadcrumb,.breadcrumbs){font-size:16px!important;line-height:1.65;color:#4b6258}
+body :is(span,a,strong,em){font-size:inherit}
+body :is(h1,.shell-page-heading h1,.siting-intro h1){font-size:32px!important;line-height:1.4;letter-spacing:-.025em}
+body :is(h2,.siting-panel h2,.model-workbench h2){font-size:26px!important;line-height:1.45}
+body :is(h3,.card-name,.model-directory-card h3){font-size:22px!important;line-height:1.45}
+body :is(button,.button,input:not([type=checkbox]):not([type=radio]):not([type=range]),select){min-height:46px;box-sizing:border-box}
+body :is(button,.button){padding:10px 16px;white-space:normal;height:auto}
+body :is(input[type=checkbox],input[type=radio]){width:22px;height:22px;flex-shrink:0;vertical-align:middle;accent-color:#087769}
+body :is(input,select,textarea){max-width:100%;font-family:inherit}
+body :is(button,a,input,select,textarea,summary):focus-visible{outline:3px solid #006a9a;outline-offset:3px}
+body :is(.source-card,.model-directory-card,.panel){height:auto;overflow-wrap:anywhere}
+body :is(.card-description,.source-coverage,.model-directory-card p){display:block;-webkit-line-clamp:unset;max-height:none;overflow:visible}
+body :is(.muted,.hint,.card-description,.provider,.source-coverage,.siting-muted){color:#4b6258!important}
+body :is(.actions,.siting-actions,.filters,.query-fields,.run-bar,.result-heading,.section-heading){gap:14px;flex-wrap:wrap}
+body :is(.source-grid){grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:20px}
+body :is(.shell-page-heading){height:auto;min-height:120px;padding-bottom:16px}
+body :is(.shell-page-heading>p,.hero p){max-width:70ch;font-size:18px!important}
+body :is(.sidebar-note,.sidebar-note p,.sidebar-bottom,.nav-item,.new-analysis){font-size:16px!important;line-height:1.6}
+body :is(.nav-item){min-height:48px;white-space:normal;height:auto}
+body :is(.brand-symbol){font-size:28px}
+body :is(.model-switcher,.shell-tabs,.result-tabs){flex-wrap:wrap;gap:12px}
+body :is(.input-grid label,.siting-main-options label){min-width:0}
+body :is(.table-wrap,.siting-scroll){overflow:auto;max-width:100%}
+body :is(.siting-data-summary span,.siting-start-note,.siting-example-note,.siting-steps button,.siting-table-heading label,.gis-heading p,.gis-inspector,.gis-inspector dt,.gis-inspector dd){font-size:16px!important}
+body :is(.siting-main-options){grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+body :is(.siting-panel pre,.model-workbench pre,pre){font-size:16px!important;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+body :is(svg text){font-size:16px}
+body :is(.ol-control button){padding:0;min-height:36px;min-width:36px;font-size:22px!important;line-height:1}
+body :is(.ol-attribution){font-size:12px!important}
+body :is(.ol-attribution li){font-size:12px!important}
+@media(max-width:850px){body :is(.shell-content){padding:20px 16px}body :is(.section-heading,.result-heading){align-items:flex-start}body :is(.search-wrap,.shell-search){width:100%;min-width:0}body :is(.siting-result-heading){display:block}body :is(.gis-simple.gis-has-selection .gis-body){display:flex;flex-direction:column}}
+@media(max-width:600px){body :is(h1,.shell-page-heading h1,.siting-intro h1){font-size:28px!important}body :is(h2,.siting-panel h2){font-size:24px!important}body :is(.panel,.siting-panel){padding:18px}body :is(.source-grid){grid-template-columns:1fr}body :is(.siting-steps){max-width:100%;gap:0}body :is(.siting-steps button){padding:10px 4px;gap:4px;font-size:16px!important}body :is(.siting-outcomes){grid-template-columns:1fr;gap:18px}body :is(.topbar){height:auto;min-height:70px;flex-wrap:wrap;padding:12px 16px}body :is(.shell-main>.topbar){flex-basis:auto}body :is(.query-fields){grid-template-columns:1fr}body :is(.run-actions,.export-actions){display:flex;flex-wrap:wrap}body :is(.siting-grid){grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{body :is(p,li,td,th){font-size:14pt!important}body :is(.shell-content){overflow:visible}}
+body :is(span,a,strong,em){font-size:max(1em,16px)!important}
+body :is(.model-directory-card p,.source-card p,.hero p,.shell-page-heading p,.card-meta,.provider,.metric p){color:#42594f!important}
+@media(max-width:650px){
+ .react-shell .sidebar{flex-direction:column!important;gap:8px;padding:12px 16px!important}
+ .react-shell .sidebar .brand{display:flex;align-items:center;margin:0!important}
+ .react-shell .sidebar .brand>span:last-child{display:block!important;font-size:20px!important}
+ .react-shell .sidebar .brand-symbol{display:flex;align-items:center;justify-content:center;line-height:1;width:36px!important;height:36px!important;font-size:24px!important}
+ .react-shell .sidebar .brand small{display:none!important}
+ .react-shell .sidebar nav{display:flex!important;margin:0!important;gap:4px;width:100%}
+ .react-shell .sidebar .nav-item{display:flex!important;align-items:center;justify-content:center;white-space:normal!important;min-width:0;font-size:16px!important;padding:8px 6px!important;line-height:1.5}
+ body .section-heading{flex-direction:column!important;align-items:stretch!important}
+ body .section-heading>div{width:100%;min-width:0}
+ body .section-heading h2{margin-bottom:8px}
+ body .topbar-right{display:none}
+}
+@media(max-width:650px){body .section-heading>div{display:block!important}body .section-heading h2{width:100%;max-width:none;overflow-wrap:normal}}
