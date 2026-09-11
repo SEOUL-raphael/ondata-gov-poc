@@ -60,3 +60,5 @@ body :is(.model-directory-card p,.source-card p,.hero p,.shell-page-heading p,.c
  body .topbar-right{display:none}
 }
 @media(max-width:650px){body .section-heading>div{display:block!important}body .section-heading h2{width:100%;max-width:none;overflow-wrap:normal}}
+body .filter-tabs{display:flex;flex-wrap:wrap;gap:8px;max-width:100%}
+body .filter-tabs .filter{flex:0 0 auto;white-space:nowrap!important;color:#435d51;min-height:46px}
