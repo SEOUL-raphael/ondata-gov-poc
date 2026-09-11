@@ -62,3 +62,21 @@ body :is(.model-directory-card p,.source-card p,.hero p,.shell-page-heading p,.c
 @media(max-width:650px){body .section-heading>div{display:block!important}body .section-heading h2{width:100%;max-width:none;overflow-wrap:normal}}
 body .filter-tabs{display:flex;flex-wrap:wrap;gap:8px;max-width:100%}
 body .filter-tabs .filter{flex:0 0 auto;white-space:nowrap!important;color:#435d51;min-height:46px}
+
+/* Desktop reading defaults; mobile layout remains unchanged. */
+@media(min-width:851px){
+ body :is(p,li,label,button,input,select,textarea,summary,td,th,dt,dd){font-size:20px!important;line-height:1.7}
+ body :is(.hint,.muted,.provider,.card-description,.card-meta,.source-coverage,.type-badge,.row-count,.source-link,.nav-label,.shell-footer,.siting-muted,.siting-help,.siting-eyebrow,.compatibility,.sidebar-note,.sidebar-note p,.sidebar-bottom,.nav-item,.new-analysis,.siting-data-summary span,.siting-start-note,.siting-example-note,.siting-steps button,.siting-table-heading label,.gis-inspector,.gis-inspector dt,.gis-inspector dd,.shell-page-heading>p,.hero p){font-size:18px!important;line-height:1.7}
+ body :is(.nav-item,.new-analysis,.sidebar-note p,.model-workbench .button.secondary){color:#435b50!important}
+ body :is(h1,.shell-page-heading h1,.siting-intro h1){font-size:36px!important}
+ body :is(h2,.siting-panel h2,.model-workbench h2){font-size:28px!important}
+ body :is(h3,.card-name,.model-directory-card h3){font-size:24px!important}
+ body :is(button,.button,input:not([type=checkbox]):not([type=radio]):not([type=range]),select){min-height:50px}
+ body .siting-steps{max-width:780px}
+ body .siting-main-options{max-width:900px;gap:24px}
+ body .section-heading>div{flex-wrap:wrap;gap:12px}
+ body .model-directory-card{padding:26px}
+ body .model-directory-card p{margin:14px 0}
+ body .gis-simple.gis-has-selection .gis-body{grid-template-columns:minmax(0,1fr) 280px}
+ body .ol-control button{min-height:40px;min-width:40px;padding:0}
+}
